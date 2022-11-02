@@ -1,0 +1,17 @@
+use thirdweb SDK and dependancies
+created a NFT collection and a NFT marketplace in thirdweb with Goerli testnet (sent the funds - eth and link by chainlink faucet website, that provides free funds for testnets)
+Minted the NFTs in the NFT collection contract, first made in thirdweb
+Listed the NFTs in the NFT marketplace contract, first made in thirdweb
+
+
+Now using Replit
+
+
+In app.js, importing {ChainId, ThirdwebProvider} from '@thirdweb-dev/react' - The modules needed to use thirdweb SDK and we will wrap our app with <ThirdwebProvider> </ThirdwebProvider> so that we can use thirdweb in our app,
+-
+Chainid for stating what network we are working on, like here Goerli
+
+
+Now we have specified the network, but to get connected with the network, we need specific rpc to get connected with Goerli
+-
+use infura to connect to ethereum network easily, without creating our own rpc node - saving us a lot of time
