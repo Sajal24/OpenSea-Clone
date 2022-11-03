@@ -48,3 +48,11 @@ export default function Home() {
 }
 
 
+
+{useMarketplace} from '@thirdweb-dev/react'
+helps us use the nft marketplace we created in thirdweb, in our app
+its a hook and takes in contract address as its parameter
+
+LISTINGS
+Now we are listing the nft collection of ours
+for that, we are using useMarketplace hook, and useEffect hook - which is basically a react hook that takes 2 parameters, first is the side effect of the hook, i.e, a function that will state what to do while the second parameter will be '[ ]'(called as dependacy module), meaning that only call the useEffect hook for once and that too when the page is loaded.
