@@ -35,3 +35,8 @@ also, by adding the key to a private secret file, we will add it to gitignore so
 
 
 CONTRACTS - SOLIDITY
+created 2 files in `contracts` folder - `NFT.sol` and `NFTMarket.sol`
+- setting up the license commented at the top
+- pragma solidity ^version => pragma means info about the files, and here we are stating what solidity version this contract is for, so that not to deploy the contract on newer unstable solidity versions
+
+installing `@openzepplin` as it adds functions to our Hardhat scripts so that we can deploy and upgrade proxies for our contracts; depends on ethers.js
