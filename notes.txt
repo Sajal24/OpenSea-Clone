@@ -1,4 +1,37 @@
 Setting up the project
 installed yarn
 installed nextjs by `npx create-next-app .`
-now in this frontend folder, installing some dependancies
+ now add tailwind css in it by `npm install -D tailwindcss postcss autoprefixer`
+ and then `npx tailwind init -p` - gives us two imp files
+
+ now in backend folder, lets install hardhat which will further install some needed dependancies
+ normal install hardhat with npm or yarn here - npm install hardhat or yarn add hardhat
+ now, npx hardhat or yarn hardhat -> gives us a full solidity development env to code in(setting up all files)
+
+
+ in global.css folder, import the tailwind base classes - add 
+` @tailwind base;
+  @tailwind components;
+  @tailwind utilities; 
+`
+this will allow us to use different class names
+
+
+we write smart contract tests in JS or TS in Hardhat
+EtherJS - a JS library to interact with ethereum 
+Waffle - a simple smart contract testing library built on top of it (and said to be better than truffle)
+
+
+NOW configure hardhat to work with polygon
+now we need to decide if we want to work with public polygon nodes or rpc endpoints OR private rpc endpoints
+Public RPCs have traffic or rate-limits depending on usage, so deploying our smart contract on public RPC endpoints might fail and hence private RPC endpoints recommended
+So we need polygon mumbai testnet api endpoints to make contact with
+So let's use Infura, but it requires card details so i am using alchemy here 
+now using mumbai test network api endpoints from alchemy (check hardhat.config.js)
+
+Here, storing our projectId in the same file and the privateKey in another .secret file, then by using the 'fs' utlilty, reading the key from it which all of this is going to help us when transacting with the chain
+also, by adding the key to a private secret file, we will add it to gitignore so that we dont accidently push it to github, making it vulnerable for hackers to steal our assets, from metamask
+
+
+
+CONTRACTS - SOLIDITY
