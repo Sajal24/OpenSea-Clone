@@ -5,6 +5,8 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
+//this reentrancy import is a security thing - prevents multiple spammy requests when transacting with other contracts
+
 contract NFTMarket is ReentrancyGuard{
     using Counters for Counters.Counter;
     Counters.Counter private _itemIds;
@@ -32,6 +34,44 @@ contract NFTMarket is ReentrancyGuard{
         uint256 price;
         bool sold;
     }
+
+    mapping(uint => MarketItem) private idToMarketItem;
+
+    event MarketItemCreated (
+        uint indexed itemId,
+        address indexed nftContract,
+        uint256 indexed tokenId,
+        address seller,
+        address owner,
+        uint256 price,
+        bool sold
+    );
+    
+    function getListingPrice() public view returns (uint) {
+        return listingPrice;
+    }
+
+     //for selling the nft
+
+     function createMarketItem(address nftContract,uint tokenId, uint price) public payable nonReentrant {
+        require(price>0, "Price must be atleast 1 MATIC");
+        require(msg.value == listingPrice, "Price must be equal to listing price");
+
+        _itemIds.increment();
+        uint itemId = _itemIds.current();
+
+        idToMarketItem[itemId] = MarketItem(
+            itemId,
+            nftContract,
+            tokenId,
+            payable(msg.sender),
+            payable(address(0)),
+            price,
+            false
+        );
+     }
+
+
 
     
 
