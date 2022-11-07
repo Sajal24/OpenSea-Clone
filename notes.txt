@@ -41,4 +41,5 @@ created 2 files in `contracts` folder - `NFT.sol` and `NFTMarket.sol`
 
 installing `@openzepplin` as it adds functions to our Hardhat scripts so that we can deploy and upgrade proxies for our contracts; depends on ethers.js
 
-
+now writing NFT.sol
+now writing NFTMarket.sol
